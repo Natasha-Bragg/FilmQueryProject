@@ -1,24 +1,28 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.List;
+
 public class Actor {
 	private int id;
 	  private String firstName;
 	  private String lastName;
-	  private String film;
+	  private List<Film> films;	  
 	  
-	  
-	public Actor(int id, String firstName, String lastName, String film) {
+	public Actor(int id, String firstName, String lastName, List<Film> film) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.film = film;
+		this.films = film;
 	}
+	public Actor() {}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((film == null) ? 0 : film.hashCode());
+		result = prime * result + ((films == null) ? 0 : films.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
@@ -33,10 +37,10 @@ public class Actor {
 		if (getClass() != obj.getClass())
 			return false;
 		Actor other = (Actor) obj;
-		if (film == null) {
-			if (other.film != null)
+		if (films == null) {
+			if (other.films != null)
 				return false;
-		} else if (!film.equals(other.film))
+		} else if (!films.equals(other.films))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
@@ -70,15 +74,15 @@ public class Actor {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getFilm() {
-		return film;
+	public List<Film> getFilm() {
+		return films;
 	}
-	public void setFilm(String film) {
-		this.film = film;
+	public void setFilm(List<Film> films) {
+		this.films = films;
 	}
 	@Override
 	public String toString() {
-		return "Actor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", film=" + film + "]";
+		return "Actor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", film=" + films+ "]";
 	}
 	  
 	  

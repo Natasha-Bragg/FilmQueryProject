@@ -6,11 +6,11 @@ public class Film {
 	  private int id;
 	  private String title;
 	  private String description;
-	  private Integer release_year;
+	  private int release_year;
 	  private String language_id;
 	  private int rental_duration;
 	  private double rental_rate;
-	  private Integer length;
+	  private int length;
 	  private double replacement_cost;
 	  private String rating;
 	  private String special_features;
@@ -18,7 +18,9 @@ public class Film {
 	
 	  
 	  
-	  @Override
+
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -26,9 +28,9 @@ public class Film {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((language_id == null) ? 0 : language_id.hashCode());
-		result = prime * result + ((length == null) ? 0 : length.hashCode());
+		result = prime * result + length;
 		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
-		result = prime * result + ((release_year == null) ? 0 : release_year.hashCode());
+		result = prime * result + release_year;
 		result = prime * result + rental_duration;
 		long temp;
 		temp = Double.doubleToLongBits(rental_rate);
@@ -66,20 +68,14 @@ public class Film {
 				return false;
 		} else if (!language_id.equals(other.language_id))
 			return false;
-		if (length == null) {
-			if (other.length != null)
-				return false;
-		} else if (!length.equals(other.length))
+		if (length != other.length)
 			return false;
 		if (rating == null) {
 			if (other.rating != null)
 				return false;
 		} else if (!rating.equals(other.rating))
 			return false;
-		if (release_year == null) {
-			if (other.release_year != null)
-				return false;
-		} else if (!release_year.equals(other.release_year))
+		if (release_year != other.release_year)
 			return false;
 		if (rental_duration != other.rental_duration)
 			return false;
@@ -109,6 +105,8 @@ public class Film {
 	}
 
 	public Film() {}
+	
+	public Film(int filmId1, String title2, String desc, short releaseYear, int langId, int rentDur, double rate, int length2, double repCost, String rating2, String features) {}
 	  
 	public Film(int id, String title, String description, Integer release_year, String language_id, int rental_duration,
 			double rental_rate, Integer length, double replacement_cost, String rating, String special_features,
@@ -145,10 +143,10 @@ public class Film {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Integer getRelease_year() {
+	public int getRelease_year() {
 		return release_year;
 	}
-	public void setRelease_year(Integer release_year) {
+	public void setRelease_year(int release_year) {
 		this.release_year = release_year;
 	}
 	public String getLanguage_id() {
@@ -169,10 +167,10 @@ public class Film {
 	public void setRental_rate(double rental_rate) {
 		this.rental_rate = rental_rate;
 	}
-	public Integer getLength() {
+	public int getLength() {
 		return length;
 	}
-	public void setLength(Integer length) {
+	public void setLength(int length) {
 		this.length = length;
 	}
 	public double getReplacement_cost() {
